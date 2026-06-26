@@ -1,0 +1,6 @@
+employee_id,first_name,last_name,gender,birth_date,hire_date,termination_date,status,hotel_code,hotel_name,city,country,department_code,department_name,contract_type,hierarchy_level
+EMP01283,Camila,Martinez Rodriguez,Female,2030-05-10,2022-03-30,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,SW,Spa & Wellness,Internship,Staff
+EMP01346,Isabel,Morales Rodriguez,Female,2030-05-10,2022-07-25,2023-02-03,Voluntary Termination,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FN,Finance,Internship,Manager
+EMP01558,Andres,Herrera Garcia,Male,2030-05-10,2021-02-02,,Active,HMX002,GlobalStay Riviera Maya,Riviera Maya,Mexico,HK,Housekeeping,Permanent,Supervisor
+EMP01986,Alex,Rodriguez Sanchez,Non Binary,2030-05-10,2024-03-12,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,HK,Housekeeping,Permanent,Staff
+EMP02512,Valentina,Garcia Castro,Female,2030-05-10,2023-02-14,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Supervisor

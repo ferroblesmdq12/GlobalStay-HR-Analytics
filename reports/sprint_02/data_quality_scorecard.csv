@@ -1,0 +1,12 @@
+Regla de calidad,Estado
+Estructura del dataset,Cumple
+Duplicados en employee_id,No cumple
+Valores nulos obligatorios,Cumple
+Estandarización de gender,No cumple
+Catálogo oficial de hotel_code,No cumple
+Fechas de nacimiento válidas,No cumple
+Fechas de contratación válidas,Cumple
+Fechas de baja válidas,Cumple
+Activos sin fecha de baja,Cumple
+No activos con fecha de baja,No cumple
+Edad mínima laboral,No cumple

@@ -1,0 +1,11 @@
+employee_id,first_name,last_name,gender,birth_date,hire_date,termination_date,status,hotel_code,hotel_name,city,country,department_code,department_name,contract_type,hierarchy_level,age,hire_year
+EMP00589,Carmen,Romero Morales,Female,1996-03-03,2020-07-18,,Active,PMI,GlobalStay Madrid Business,Madrid,Spain,MT,Maintenance,Permanent,Staff,30,2020
+EMP00783,Ana,Sanchez Diaz,Female,1986-07-06,2025-02-08,,Long Leave,PALMA,GlobalStay Barcelona Beach,Barcelona,Spain,FB,Food & Beverage,Permanent,Supervisor,39,2025
+EMP00817,Carmen,Gonzalez Lopez,Female,1978-02-20,2020-07-02,,Active,PALMA,GlobalStay Barcelona Beach,Barcelona,Spain,IT,Information Technology,Permanent,Staff,48,2020
+EMP00869,Miguel,Martinez Ramirez,Male,1984-11-05,2021-06-06,,Active,PMI,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff,41,2021
+EMP01478,Juan,Romero Garcia,Male,1997-11-09,2026-04-04,,Active,PMI,GlobalStay Cancun Resort,Cancun,Mexico,SW,Spa & Wellness,Permanent,Staff,28,2026
+EMP01924,Luis,Castro Garcia,Male,1994-09-28,2021-03-14,,Active,PMI,GlobalStay La Habana,La Habana,Cuba,HR,Human Resources,Temporary,Staff,31,2021
+EMP02295,Valentina,Garcia Gonzalez,Female,1985-06-27,2022-07-31,,Active,PMI,GlobalStay Varadero Beach,Varadero,Cuba,SM,Sales & Marketing,Permanent,Staff,40,2022
+EMP02326,Laura,Ramirez Herrera,Female,1990-05-06,2021-04-13,,Active,PALMA,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Director Hotel,36,2021
+EMP02459,Andres,Diaz Castro,Male,1987-05-05,2025-09-14,,Active,PALMA,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FD,Front Desk,Temporary,Supervisor,39,2025
+EMP02521,Jose,Vargas Fernandez,Male,1993-12-25,2024-03-14,,Active,PALMA,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FB,Food & Beverage,Permanent,Staff,32,2024

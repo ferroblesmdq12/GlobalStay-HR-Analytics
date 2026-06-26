@@ -1,0 +1,31 @@
+employee_id,first_name,last_name,gender,birth_date,hire_date,termination_date,status,hotel_code,hotel_name,city,country,department_code,department_name,contract_type,hierarchy_level
+EMP00529,Miguel,Vargas Castro,Male,1976-06-26,2025-05-04,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,HK,Housekeeping,Permanent,Staff
+EMP00566,Andres,Gonzalez Martinez,Male,1979-11-27,2023-10-07,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,SW,Spa & Wellness,Temporary,Supervisor
+EMP00701,Carmen,Perez Garcia,Female,1974-11-11,2020-08-27,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FD,Front Desk,Temporary,Staff
+EMP00813,Maria,Castro Garcia,Female,1998-06-10,2024-05-31,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Temporary,Staff
+EMP00846,Carmen,Ramirez Torres,Female,1981-12-08,2021-04-01,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FD,Front Desk,Permanent,Staff
+EMP01005,Laura,Vargas Lopez,Female,1986-12-02,2025-09-24,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,HK,Housekeeping,Internship,Staff
+EMP01054,Andres,Castro Diaz,Male,1999-02-20,2026-04-17,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,HK,Housekeeping,Permanent,Staff
+EMP01107,Diego,Morales Lopez,Male,1983-10-17,2023-07-25,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,MT,Maintenance,Permanent,Staff
+EMP01223,Juan,Herrera Herrera,Male,1990-04-29,2021-03-23,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FN,Finance,Permanent,Staff
+EMP01232,Isabel,Diaz Perez,Female,1969-10-18,2024-02-16,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FD,Front Desk,Seasonal,Staff
+EMP01340,Fernando,Castro Garcia,Male,1973-09-15,2026-01-26,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,HK,Housekeeping,Permanent,Staff
+EMP01504,Miguel,Martinez Perez,Male,1980-08-10,2020-10-24,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,SC,Security,Seasonal,Staff
+EMP02284,Fernando,Morales Castro,Male,1972-01-30,2024-04-05,2026-03-10,Involuntary Termination,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,SW,Spa & Wellness,Permanent,Staff
+EMP02290,Isabel,Sanchez Romero,F,1978-07-01,2023-09-01,2024-12-05,Voluntary Termination,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,FB,Food & Beverage,Permanent,Staff
+EMP02411,Juan,Castro Sanchez,Male,1982-09-21,2021-01-20,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,MT,Maintenance,Permanent,Staff
+EMP01340,Fernando,Castro Garcia,Male,1973-09-15,2026-01-26,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,HK,Housekeeping,Permanent,Staff
+EMP01223,Juan,Herrera Herrera,Male,1990-04-29,2021-03-23,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FN,Finance,Permanent,Staff
+EMP01107,Diego,Morales Lopez,Male,1983-10-17,2023-07-25,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,MT,Maintenance,Permanent,Staff
+EMP00813,Maria,Castro Garcia,Female,1998-06-10,2024-05-31,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Temporary,Staff
+EMP01232,Isabel,Diaz Perez,Female,1969-10-18,2024-02-16,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FD,Front Desk,Seasonal,Staff
+EMP00566,Andres,Gonzalez Martinez,Male,1979-11-27,2023-10-07,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,SW,Spa & Wellness,Temporary,Supervisor
+EMP00846,Carmen,Ramirez Torres,Female,1981-12-08,2021-04-01,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FD,Front Desk,Permanent,Staff
+EMP01005,Laura,Vargas Lopez,Female,1986-12-02,2025-09-24,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,HK,Housekeeping,Internship,Staff
+EMP02284,Fernando,Morales Castro,Male,1972-01-30,2024-04-05,2026-03-10,Involuntary Termination,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,SW,Spa & Wellness,Permanent,Staff
+EMP00701,Carmen,Perez Garcia,Female,1974-11-11,2020-08-27,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FD,Front Desk,Temporary,Staff
+EMP01504,Miguel,Martinez Perez,Male,1980-08-10,2020-10-24,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,SC,Security,Seasonal,Staff
+EMP00529,Miguel,Vargas Castro,Male,1976-06-26,2025-05-04,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,HK,Housekeeping,Permanent,Staff
+EMP02290,Isabel,Sanchez Romero,Female,1978-07-01,2023-09-01,2024-12-05,Voluntary Termination,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,FB,Food & Beverage,Permanent,Staff
+EMP01054,Andres,Castro Diaz,Male,1999-02-20,2026-04-17,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,HK,Housekeeping,Permanent,Staff
+EMP02411,Juan,Castro Sanchez,Male,1982-09-21,2021-01-20,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,MT,Maintenance,Permanent,Staff

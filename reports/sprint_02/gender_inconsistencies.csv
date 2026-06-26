@@ -1,0 +1,21 @@
+employee_id,first_name,last_name,gender,birth_date,hire_date,termination_date,status,hotel_code,hotel_name,city,country,department_code,department_name,contract_type,hierarchy_level,age,hire_year
+EMP00352,Sofia,Ramirez Gonzalez,male,1986-04-04,2022-04-02,,Active,HES001,GlobalStay Palma Resort,Palma de Mallorca,Spain,HK,Housekeeping,Permanent,Staff,40,2022
+EMP00444,Isabel,Herrera Diaz,M,1997-02-24,2020-07-20,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,FD,Front Desk,Permanent,Staff,29,2020
+EMP00445,Carlos,Vargas Rodriguez,M,1994-09-13,2024-01-18,2024-04-30,Voluntary Termination,HES002,GlobalStay Madrid Business,Madrid,Spain,HR,Human Resources,Permanent,Staff,31,2024
+EMP00637,Carlos,Morales Perez,M,1981-10-21,2026-05-12,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,HK,Housekeeping,Permanent,Supervisor,44,2026
+EMP00744,Fernando,Garcia Herrera,male,1994-02-23,2025-09-30,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff,32,2025
+EMP01071,Lucia,Sanchez Torres,M,1995-08-26,2020-08-06,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,SW,Spa & Wellness,Seasonal,Staff,30,2020
+EMP01087,Maria,Torres Torres,male,2001-03-19,2024-05-03,,Active,HES004,GlobalStay Malaga Costa,Malaga,Spain,HK,Housekeeping,Permanent,Staff,25,2024
+EMP01385,Javier,Gonzalez Gonzalez,M,1985-09-13,2021-08-28,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,MT,Maintenance,Temporary,Supervisor,40,2021
+EMP01416,Juan,Herrera Martinez,M,1972-06-23,2025-02-04,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,HK,Housekeeping,Permanent,Staff,53,2025
+EMP01495,Andres,Morales Castro,male,1982-09-04,2021-05-11,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,HK,Housekeeping,Temporary,Staff,43,2021
+EMP01531,Valentina,Sanchez Herrera,F,1992-11-11,2022-06-28,,Long Leave,HMX002,GlobalStay Riviera Maya,Riviera Maya,Mexico,HK,Housekeeping,Temporary,Staff,33,2022
+EMP01702,Lucia,Diaz Martinez,male,1998-02-27,2024-05-04,,Active,HMX002,GlobalStay Riviera Maya,Riviera Maya,Mexico,FB,Food & Beverage,Permanent,Staff,28,2024
+EMP01713,Lucia,Romero Morales,F,1995-08-11,2026-04-30,,Active,HMX002,GlobalStay Riviera Maya,Riviera Maya,Mexico,FB,Food & Beverage,Permanent,Staff,30,2026
+EMP01893,Sofia,Romero Lopez,F,1991-05-06,2025-07-24,,Long Leave,HCU001,GlobalStay La Habana,La Habana,Cuba,MT,Maintenance,Temporary,Staff,35,2025
+EMP02014,Luis,Martinez Romero,F,1997-01-20,2023-05-12,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,SW,Spa & Wellness,Permanent,Staff,29,2023
+EMP02270,Isabel,Castro Gonzalez,M,1977-12-11,2025-04-28,,Active,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,FN,Finance,Permanent,Staff,48,2025
+EMP02290,Isabel,Sanchez Romero,F,1978-07-01,2023-09-01,2024-12-05,Voluntary Termination,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,FB,Food & Beverage,Permanent,Staff,47,2023
+EMP02313,Camila,Perez Torres,F,1987-06-18,2021-10-14,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Staff,38,2021
+EMP02340,Sofia,Vargas Garcia,male,1979-06-28,2023-11-24,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Temporary,Staff,46,2023
+EMP02399,Sofia,Morales Garcia,male,1988-06-07,2025-12-23,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,IT,Information Technology,Temporary,Staff,38,2025
