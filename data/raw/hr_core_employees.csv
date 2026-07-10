@@ -587,7 +587,7 @@ EMP00585,Sofia,Torres Herrera,Female,1980-01-28,2026-04-09,,Active,HES002,Global
 EMP00586,Luis,Herrera Lopez,Male,2002-04-10,2023-03-24,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,FB,Food & Beverage,Permanent,Staff
 EMP00587,Laura,Morales Herrera,Female,1982-09-21,2026-05-05,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,FB,Food & Beverage,Seasonal,Staff
 EMP00588,Paula,Garcia Diaz,Female,1973-04-02,2021-10-29,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,MT,Maintenance,Permanent,Staff
-EMP00589,Carmen,Romero Morales,Female,1996-03-03,2020-07-18,,Active,PMI,GlobalStay Madrid Business,Madrid,Spain,MT,Maintenance,Permanent,Staff
+EMP00589,Carmen,Romero Morales,Female,1996-03-03,2020-07-18,,Active,PMI,GlobalStay Palma Resort,Palma de Mallorca,Spain,MT,Maintenance,Permanent,Staff
 EMP00590,Laura,Perez Ramirez,Female,1984-08-18,2023-07-19,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,FB,Food & Beverage,Permanent,Staff
 EMP00591,Maria,Torres Morales,Female,1995-03-23,2025-06-09,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,HK,Housekeeping,Temporary,Staff
 EMP00592,Javier,Lopez Romero,Male,1979-12-15,2025-03-01,,Active,HES002,GlobalStay Madrid Business,Madrid,Spain,FB,Food & Beverage,Permanent,Staff
@@ -781,7 +781,7 @@ EMP00779,Valentina,Torres Vargas,Female,1972-12-22,2023-03-06,,Active,HES003,Glo
 EMP00780,Miguel,Gonzalez Garcia,Male,1973-12-01,2020-02-22,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff
 EMP00781,Paula,Martinez Romero,Female,2006-10-30,2020-06-08,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FB,Food & Beverage,Permanent,Staff
 EMP00782,Carmen,Herrera Morales,Female,1994-05-24,2020-08-24,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,SC,Security,Permanent,Staff
-EMP00783,Ana,Sanchez Diaz,Female,1986-07-06,2025-02-08,,Long Leave,PALMA,GlobalStay Barcelona Beach,Barcelona,Spain,FB,Food & Beverage,Permanent,Supervisor
+EMP00783,Ana,Sanchez Diaz,Female,1986-07-06,2025-02-08,,Long Leave,PALMA,GlobalStay Palma Resort,Palma de Mallorca,Spain,FB,Food & Beverage,Permanent,Supervisor
 EMP00784,Carlos,Castro Castro,Male,1993-06-21,2020-11-25,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,SC,Security,Permanent,Supervisor
 EMP00785,Isabel,Torres Romero,Female,2007-02-23,2020-12-30,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FB,Food & Beverage,Temporary,Manager
 EMP00786,Sofia,Garcia Perez,Female,1998-11-09,2025-07-07,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,SC,Security,Permanent,Staff
@@ -815,7 +815,7 @@ EMP00813,Maria,Castro Garcia,Female,1998-06-10,2024-05-31,,Active,HES003,GlobalS
 EMP00814,Lucia,Lopez Perez,Female,1983-05-21,2022-01-07,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FD,Front Desk,Seasonal,Staff
 EMP00815,Maria,Martinez Diaz,Female,1981-09-05,2020-05-23,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff
 EMP00816,Ana,Fernandez Torres,Female,2003-10-03,2020-07-08,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff
-EMP00817,Carmen,Gonzalez Lopez,Female,1978-02-20,2020-07-02,,Active,PALMA,GlobalStay Barcelona Beach,Barcelona,Spain,IT,Information Technology,Permanent,Staff
+EMP00817,Carmen,Gonzalez Lopez,Female,1978-02-20,2020-07-02,,Active,PALMA,GlobalStay Palma Resort,Palma de Mallorca,Spain,IT,Information Technology,Permanent,Staff
 EMP00818,Sam,Morales Diaz,Non Binary,1998-11-27,2021-06-10,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FD,Front Desk,Temporary,Staff
 EMP00819,Valentina,Martinez Diaz,Female,2006-01-24,2024-10-08,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,MT,Maintenance,Temporary,Staff
 EMP00820,Jose,Morales Perez,Male,1983-08-06,2024-09-15,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff
@@ -867,7 +867,7 @@ EMP00865,Fernando,Lopez Herrera,Male,2007-05-02,2021-11-25,,Active,HES003,Global
 EMP00866,Laura,Rodriguez Sanchez,Female,1984-06-28,2021-12-30,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff
 EMP00867,Luis,Torres Morales,Male,2003-06-12,2021-03-01,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FB,Food & Beverage,Permanent,Supervisor
 EMP00868,Maria,Sanchez Ramirez,Female,1992-08-19,2021-08-28,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,SW,Spa & Wellness,Temporary,Staff
-EMP00869,Miguel,Martinez Ramirez,Male,1984-11-05,2021-06-06,,Active,PMI,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Permanent,Staff
+EMP00869,Miguel,Martinez Ramirez,Male,1984-11-05,2021-06-06,,Active,PMI,GlobalStay Palma Resort,Palma de Mallorca,Spain,HK,Housekeeping,Permanent,Staff
 EMP00870,Noa,Ramirez Sanchez,Non Binary,1993-09-10,2022-10-04,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,HK,Housekeeping,Seasonal,Staff
 EMP00871,Lucia,Castro Martinez,Female,1987-02-26,2024-09-23,,Long Leave,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,FB,Food & Beverage,Internship,Supervisor
 EMP00872,Camila,Herrera Sanchez,Female,1977-10-18,2021-03-27,,Active,HES003,GlobalStay Barcelona Beach,Barcelona,Spain,SC,Security,Permanent,Staff
@@ -1476,7 +1476,7 @@ EMP01474,Andres,Martinez Torres,Male,2006-03-18,2023-03-16,,Active,HMX001,Global
 EMP01475,Paula,Romero Castro,Female,1998-09-09,2023-04-29,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FD,Front Desk,Permanent,Staff
 EMP01476,Andres,Fernandez Sanchez,Male,1995-08-24,2023-09-15,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FD,Front Desk,Permanent,Staff
 EMP01477,Lucia,Perez Gonzalez,Female,1977-11-02,2021-03-19,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,HK,Housekeeping,Permanent,Staff
-EMP01478,Juan,Romero Garcia,Male,1997-11-09,2026-04-04,,Active,PMI,GlobalStay Cancun Resort,Cancun,Mexico,SW,Spa & Wellness,Permanent,Staff
+EMP01478,Juan,Romero Garcia,Male,1997-11-09,2026-04-04,,Active,PMI,GlobalStay Palma Resort,Palma de Mallorca,Spain,SW,Spa & Wellness,Permanent,Staff
 EMP01479,Ana,Vargas Perez,Female,2004-02-19,2022-06-03,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,HK,Housekeeping,Permanent,Staff
 EMP01480,Carmen,Fernandez Sanchez,Female,1989-07-06,2026-04-17,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,SW,Spa & Wellness,Permanent,Staff
 EMP01481,Carlos,Sanchez Romero,Male,1987-12-10,2023-10-30,,Active,HMX001,GlobalStay Cancun Resort,Cancun,Mexico,FB,Food & Beverage,Temporary,Staff
@@ -1922,7 +1922,7 @@ EMP01920,Valentina,Perez Fernandez,Female,1984-04-28,2020-08-14,,Active,HCU001,G
 EMP01921,Maria,Vargas Martinez,Female,2006-07-24,2020-05-01,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,HR,Human Resources,Temporary,Supervisor
 EMP01922,Miguel,Garcia Diaz,Male,1982-12-26,2025-12-20,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,FD,Front Desk,Temporary,Staff
 EMP01923,Jose,Diaz Torres,Male,1995-11-09,2024-04-12,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,FD,Front Desk,Permanent,Staff
-EMP01924,Luis,Castro Garcia,Male,1994-09-28,2021-03-14,,Active,PMI,GlobalStay La Habana,La Habana,Cuba,HR,Human Resources,Temporary,Staff
+EMP01924,Luis,Castro Garcia,Male,1994-09-28,2021-03-14,,Active,PMI,GlobalStay Palma Resort,Palma de Mallorca,Spain,HR,Human Resources,Temporary,Staff
 EMP01925,Lucia,Torres Herrera,Female,1985-04-29,2021-09-01,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,FB,Food & Beverage,Permanent,Staff
 EMP01926,Maria,Perez Ramirez,Female,1993-06-09,2021-02-19,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,FD,Front Desk,Temporary,Staff
 EMP01927,Fernando,Morales Castro,Male,2005-11-13,2021-09-17,,Active,HCU001,GlobalStay La Habana,La Habana,Cuba,MT,Maintenance,Permanent,Staff
@@ -2293,7 +2293,7 @@ EMP02291,Maria,Vargas Romero,Female,2006-05-30,2025-07-09,,Active,HCU002,GlobalS
 EMP02292,Jose,Diaz Diaz,Male,1980-10-30,2021-07-21,,Active,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,HR,Human Resources,Internship,Staff
 EMP02293,Juan,Perez Sanchez,Male,1992-06-22,2022-03-13,,Active,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,HK,Housekeeping,Temporary,Staff
 EMP02294,Ana,Torres Morales,Female,1997-09-17,2025-07-11,,Active,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,HK,Housekeeping,Temporary,Staff
-EMP02295,Valentina,Garcia Gonzalez,Female,1985-06-27,2022-07-31,,Active,PMI,GlobalStay Varadero Beach,Varadero,Cuba,SM,Sales & Marketing,Permanent,Staff
+EMP02295,Valentina,Garcia Gonzalez,Female,1985-06-27,2022-07-31,,Active,PMI,GlobalStay Palma Resort,Palma de Mallorca,Spain,SM,Sales & Marketing,Permanent,Staff
 EMP02296,Maria,Fernandez Gonzalez,Female,2006-05-09,2024-12-26,,Active,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,HK,Housekeeping,Temporary,Supervisor
 EMP02297,Fernando,Vargas Garcia,Male,1993-09-17,2024-06-07,,Long Leave,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,HK,Housekeeping,Permanent,Staff
 EMP02298,Carlos,Sanchez Sanchez,Male,1992-04-07,2020-04-20,,Active,HCU002,GlobalStay Varadero Beach,Varadero,Cuba,MT,Maintenance,Permanent,Staff
@@ -2324,7 +2324,7 @@ EMP02322,Carlos,Castro Morales,Male,1973-01-10,2024-11-14,2026-01-04,Involuntary
 EMP02323,Camila,Fernandez Gonzalez,Female,1989-12-05,2023-03-23,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Staff
 EMP02324,Luis,Sanchez Castro,Male,1977-03-09,2024-02-02,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FB,Food & Beverage,Permanent,Staff
 EMP02325,Carlos,Diaz Fernandez,Male,1975-07-03,2020-02-24,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,SW,Spa & Wellness,Permanent,Staff
-EMP02326,Laura,Ramirez Herrera,Female,1990-05-06,2021-04-13,,Active,PALMA,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Director Hotel
+EMP02326,Laura,Ramirez Herrera,Female,1990-05-06,2021-04-13,,Active,PALMA,GlobalStay Palma Resort,Palma de Mallorca,Spain,HK,Housekeeping,Permanent,Director Hotel
 EMP02327,Maria,Romero Garcia,Female,1997-08-22,2020-05-05,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Staff
 EMP02328,Pedro,Ramirez Vargas,Male,1996-09-27,2026-03-28,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Staff
 EMP02329,Lucia,Morales Herrera,Female,2005-10-12,2020-12-31,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Seasonal,Staff
@@ -2457,7 +2457,7 @@ EMP02455,Jose,Torres Fernandez,Male,1993-12-13,2024-07-25,,Active,HDR001,GlobalS
 EMP02456,Carlos,Garcia Martinez,Male,1980-12-22,2021-08-01,2026-03-10,Involuntary Termination,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Supervisor
 EMP02457,Andres,Gonzalez Garcia,Male,1997-09-15,2023-04-19,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,SM,Sales & Marketing,Permanent,Supervisor
 EMP02458,Jose,Castro Ramirez,Male,1987-02-01,2024-08-26,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,MT,Maintenance,Permanent,Staff
-EMP02459,Andres,Diaz Castro,Male,1987-05-05,2025-09-14,,Active,PALMA,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FD,Front Desk,Temporary,Supervisor
+EMP02459,Andres,Diaz Castro,Male,1987-05-05,2025-09-14,,Active,PALMA,GlobalStay Palma Resort,Palma de Mallorca,Spain,FD,Front Desk,Temporary,Supervisor
 EMP02460,Jose,Morales Vargas,Male,2007-04-08,2024-09-23,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FB,Food & Beverage,Temporary,Staff
 EMP02461,Diego,Vargas Vargas,Male,2005-11-22,2024-10-19,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Internship,Staff
 EMP02462,Ana,Herrera Herrera,Female,1995-01-15,2022-12-21,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,MT,Maintenance,Permanent,Manager
@@ -2519,7 +2519,7 @@ EMP02517,Fernando,Fernandez Garcia,Male,1982-04-15,2020-07-23,,Active,HDR001,Glo
 EMP02518,Ana,Martinez Ramirez,Female,1997-09-15,2025-05-01,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Staff
 EMP02519,Lucia,Torres Perez,Female,2001-07-24,2025-05-18,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FD,Front Desk,Temporary,Staff
 EMP02520,Juan,Martinez Rodriguez,Male,1997-06-08,2023-01-29,2025-01-11,Voluntary Termination,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,MT,Maintenance,Temporary,Staff
-EMP02521,Jose,Vargas Fernandez,Male,1993-12-25,2024-03-14,,Active,PALMA,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,FB,Food & Beverage,Permanent,Staff
+EMP02521,Jose,Vargas Fernandez,Male,1993-12-25,2024-03-14,,Active,PALMA,GlobalStay Palma Resort,Palma de Mallorca,Spain,FB,Food & Beverage,Permanent,Staff
 EMP02522,Ana,Morales Fernandez,Female,2000-01-26,2021-09-23,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,SC,Security,Temporary,Staff
 EMP02523,Isabel,Sanchez Herrera,Female,1965-01-08,2021-07-11,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,HK,Housekeeping,Permanent,Staff
 EMP02524,Andres,Sanchez Morales,Male,1965-05-20,2024-08-01,,Active,HDR001,GlobalStay Punta Cana Resort,Punta Cana,Dominican Republic,MT,Maintenance,Permanent,Supervisor

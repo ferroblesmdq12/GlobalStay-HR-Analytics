@@ -5,6 +5,7 @@ Este módulo crea la conexión a PostgreSQL usando variables de entorno.
 """
 
 import os
+
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
@@ -34,6 +35,4 @@ def get_postgres_engine():
             f"@{db_host}:{db_port}/{db_name}"
         )
 
-    engine = create_engine(connection_string)
-
-    return engine
+    return create_engine(connection_string)

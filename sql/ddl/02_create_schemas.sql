@@ -4,12 +4,13 @@
 --
 -- Script: 02_create_schema.sql
 -- Objetivo:
--- Crear el esquema del Data Warehouse.
---
--- Autor: Fernando Raúl Robles
--- Fecha: 30/06/2026
--- Versión: 1.0
+-- Crear los esquemas principales de la plataforma de datos.
 -- ============================================================
+
+CREATE SCHEMA IF NOT EXISTS staging;
+
+COMMENT ON SCHEMA staging IS
+'Esquema temporal para almacenar datos provenientes de la capa Silver antes de cargar el Data Warehouse.';
 
 CREATE SCHEMA IF NOT EXISTS dw;
 
