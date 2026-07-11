@@ -1,272 +1,164 @@
-# GlobalStay Hotels
+# GlobalStay Hotels – Data Governance Policy
 
-# Data Governance Policy
+## Overview
 
-**Proyecto:** HR Analytics Platform
+This document defines the data governance principles applied to the GlobalStay Hotels HR Analytics Platform.
 
-**Documento:** 08 - Data Governance Policy
-
-**Versión:** 1.0
-
-**Fecha:** 30/06/2026
+The objective is to ensure data consistency, quality, traceability, and reliability throughout the analytical lifecycle.
 
 ---
 
-# 1. Propósito
+# Governance Objectives
 
-La presente política establece el marco de Gobierno del Dato para el proyecto **GlobalStay Hotels HR Analytics Platform**.
+The current implementation focuses on:
 
-Su objetivo es garantizar que la información utilizada por la organización sea:
-
-- precisa;
-- consistente;
-- confiable;
-- trazable;
-- segura;
-- gobernada mediante responsabilidades claramente definidas.
-
-Esta política aplica a todos los datos del dominio de Recursos Humanos utilizados en el Data Warehouse corporativo.
+- Improving data quality.
+- Preserving business consistency.
+- Ensuring analytical reliability.
+- Supporting decision-making.
+- Maintaining data traceability.
 
 ---
 
-# 2. Objetivos
+# Governance Components
 
-Los objetivos principales son:
+The project currently includes the following governance components:
 
-- mejorar la calidad de los datos;
-- asegurar la consistencia entre sistemas;
-- establecer responsabilidades claras sobre los datos;
-- definir el proceso de aprobación de modificaciones;
-- garantizar la trazabilidad de todas las transformaciones realizadas por el Pipeline ETL.
-
----
-
-# 3. Roles y responsabilidades
-
-## Data Owner
-
-**Área**
-
-Corporate Human Resources
-
-### Responsabilidades
-
-- Propietario funcional de los datos.
-- Aprobar reglas de negocio.
-- Autorizar modificaciones sobre información funcional.
-- Definir políticas de calidad.
+| Component | Status |
+|-----------|--------|
+| Data Validation | ✅ |
+| Business Rules | ✅ |
+| Data Quality Report | ✅ |
+| Quality Flags | ✅ |
+| Change Log | ✅ |
+| Business Approval | ✅ |
 
 ---
 
-## Data Steward
+# Data Quality
 
-**Área**
+The ETL pipeline validates incoming data before loading it into the Data Warehouse.
 
-HR Data Manager
+Implemented validations include:
 
-### Responsabilidades
+- Duplicate Employee IDs
+- Invalid Gender Values
+- Invalid Hotel Codes
+- Future Hire Dates
+- Future Birth Dates
+- Future Termination Dates
+- Termination Before Hire
+- Active Employees with Termination Date
+- Minimum Working Age
 
-- Supervisar la calidad del dato.
-- Mantener catálogos corporativos.
-- Revisar incidencias detectadas.
-- Coordinar acciones correctivas.
-
----
-
-## Data Custodian
-
-**Área**
-
-Data Engineering
-
-### Responsabilidades
-
-- Implementar el Pipeline ETL.
-- Aplicar transformaciones autorizadas.
-- Garantizar la trazabilidad.
-- Mantener la infraestructura de datos.
-- Documentar todos los cambios realizados.
+Records containing non-critical issues are preserved using quality flags.
 
 ---
 
-## Data Consumer
+# Business Rules
 
-**Áreas**
+The following business rules are enforced during the ETL process:
 
-- Recursos Humanos
-- Dirección
-- Business Intelligence
-- People Analytics
-- Finanzas
-
-### Responsabilidades
-
-- Utilizar la información para análisis y toma de decisiones.
-- Reportar posibles inconsistencias detectadas.
+- Employee IDs must be unique.
+- Hotel codes must exist in the master data.
+- Hire dates cannot be in the future.
+- Termination dates cannot precede hire dates.
+- Active employees cannot have a termination date.
+- Employees must meet the minimum working age requirement.
 
 ---
 
-# 4. Principios de Gobierno del Dato
+# Quality Flags
 
-GlobalStay Hotels adopta los siguientes principios:
+The project preserves certain business inconsistencies through quality indicators instead of deleting records.
 
-## Calidad
+Current flags include:
 
-Los datos deben cumplir criterios mínimos de calidad antes de ingresar al Data Warehouse.
-
----
-
-## Integridad
-
-Los datos deben representar fielmente la realidad del negocio.
+| Flag | Description |
+|------|-------------|
+| invalid_birth_date_flag | Future birth date detected |
+| inactive_without_termination_flag | Missing termination date |
+| quality_issue_flag | General quality issue indicator |
 
 ---
 
-## Consistencia
+# Data Lineage
 
-La información debe mantenerse uniforme entre todos los sistemas corporativos.
-
----
-
-## Trazabilidad
-
-Toda modificación realizada sobre un dato deberá quedar documentada.
-
----
-
-## Responsabilidad
-
-Cada conjunto de datos debe tener un responsable funcional claramente identificado.
-
----
-
-## Transparencia
-
-Todas las transformaciones implementadas por el ETL deberán encontrarse documentadas y justificadas.
-
----
-
-# 5. Proceso de gestión de incidencias
-
-El tratamiento de incidencias seguirá el siguiente flujo:
+The analytical data follows the process below:
 
 ```
-Detección
+HR Core
 
 ↓
 
-Auditoría de Calidad
+RAW Dataset
 
 ↓
 
-Data Quality Report
+Validation
 
 ↓
 
-Revisión del Data Steward
+Transformation
 
 ↓
 
-Aprobación del Data Owner
+Silver Layer
 
 ↓
 
-Implementación ETL
+PostgreSQL Staging
 
 ↓
 
-Registro en Change Log
+Data Warehouse
 
 ↓
 
-Carga al Data Warehouse
+SQL Analytics
+
+↓
+
+Power BI
 ```
 
 ---
 
-# 6. Reglas para modificaciones de datos
+# Responsibilities
 
-El equipo de Data Engineering podrá:
-
-✅ eliminar duplicados autorizados;
-
-✅ estandarizar valores utilizando catálogos oficiales;
-
-✅ reconciliar datos maestros;
-
-✅ generar columnas derivadas;
-
-✅ crear indicadores de calidad.
-
-No podrá:
-
-❌ modificar datos personales sin autorización;
-
-❌ completar información inexistente mediante estimaciones;
-
-❌ alterar registros históricos sin aprobación del Data Owner.
+| Role | Responsibility |
+|------|----------------|
+| HR Department | Owns operational employee data |
+| Data Engineer | Develops and maintains ETL processes |
+| Data Analyst | Builds reports and dashboards |
+| Business Users | Consume analytical information |
 
 ---
 
-# 7. Gestión de Quality Flags
+# Current Governance Status
 
-Cuando una incidencia no pueda corregirse automáticamente, el Pipeline ETL generará una bandera de calidad (*Quality Flag*).
-
-Estas banderas permiten:
-
-- identificar registros afectados;
-- preservar el dato original;
-- facilitar futuras revisiones;
-- evitar pérdida de información.
-
----
-
-# 8. Documentación obligatoria
-
-Toda modificación implementada deberá encontrarse respaldada por la siguiente documentación:
-
-- Data Quality Report
-- Business Approval
-- Change Log
-- ETL Pipeline Documentation
+| Area | Status |
+|------|--------|
+| Data Quality | ✅ |
+| Validation Rules | ✅ |
+| Data Lineage | ✅ |
+| Traceability | ✅ |
+| Documentation | ✅ |
 
 ---
 
-# 9. Versionado
+# Conclusion
 
-Cada modificación relevante del Pipeline ETL deberá registrarse mediante una nueva versión del proyecto en GitHub.
+The current governance framework provides a reliable foundation for the HR Analytics platform.
 
-Ejemplo:
-
-| Versión  | Descripción    |
-|----------|----------------|
-| v0.1     | Diseño inicial |
-| v0.2     | Generación RAW |
-| v0.3     | Data Quality   |
-| v0.4     | Pipeline ETL   |
-| v0.5     | Data Warehouse |
-| v0.6     | SQL Analytics  |
-| v1.0     | Proyecto final |
+Future versions of the project will expand governance capabilities by incorporating additional HR domains, audit tables, and automated monitoring processes.
 
 ---
 
-# 10. Beneficios del Gobierno del Dato
+# Author
 
-La aplicación de esta política permite:
+**Fernando Raúl Robles**
 
-- aumentar la confianza en los datos;
-- mejorar la calidad de los indicadores;
-- reducir errores operativos;
-- facilitar auditorías;
-- garantizar la trazabilidad;
-- fortalecer la toma de decisiones basada en datos.
+Data Analytics & Data Engineering Portfolio Project
 
----
-
-# Estado
-
-**Vigente**
-
----
-
-# Fin del documento
+2026

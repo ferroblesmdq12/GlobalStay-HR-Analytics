@@ -1,301 +1,288 @@
-# GlobalStay Hotels
+# GlobalStay Hotels – PostgreSQL Data Warehouse Design
 
-# Data Warehouse Design
+## Overview
 
-**Proyecto:** HR Analytics Platform
+This document describes the PostgreSQL Data Warehouse implemented for the GlobalStay Hotels HR Analytics Platform.
 
-**Documento:** 09 - PostgreSQL Data Warehouse Design
+The solution follows a dimensional modeling approach (Kimball Star Schema) and provides a centralized repository for analytical reporting and Business Intelligence.
 
-**Versión:** 1.0
-
-**Fecha:** 30/06/2026
+The Data Warehouse integrates validated HR Core information through a modular ETL pipeline developed in Python.
 
 ---
 
-# 1. Objetivo
-
-El objetivo de este documento es definir la arquitectura del Data Warehouse corporativo que soportará los procesos analíticos de Recursos Humanos de GlobalStay Hotels.
-
-El modelo ha sido diseñado utilizando metodología dimensional (Star Schema), priorizando simplicidad, rendimiento y escalabilidad.
-
-La fuente de información será la capa Silver generada por el Pipeline ETL.
-
----
-
-# 2. Objetivos de negocio
-
-El Data Warehouse permitirá responder preguntas como:
-
-- ¿Cuántos empleados activos posee la compañía?
-- ¿Cuál es el Headcount por hotel?
-- ¿Cuál es la distribución por departamento?
-- ¿Qué porcentaje de empleados tiene contratos permanentes?
-- ¿Cuál es la antigüedad promedio?
-- ¿Cuántos empleados existen por nivel jerárquico?
-- ¿Qué hoteles presentan mayor rotación?
-- ¿Cuántos registros presentan incidencias de calidad?
-
----
-
-# 3. Fuente de datos
-
-Fuente principal:
+# Architecture
 
 ```
-data/silver/hr_core_employees_clean.csv
-```
-
-Origen:
-
-Pipeline ETL desarrollado durante el Sprint 3.
-
----
-
-# 4. Arquitectura
-
-```
-Sistema HR Core
-
+Operational Systems
         │
-
         ▼
-
-RAW Layer
-
+RAW Layer (CSV Files)
         │
-
         ▼
-
-Pipeline ETL
-
+Python ETL Pipeline
         │
-
         ▼
-
 Silver Layer
-
         │
-
         ▼
-
-PostgreSQL Data Warehouse
-
+PostgreSQL Staging
         │
-
         ▼
-
+Enterprise Data Warehouse
+        │
+        ▼
+Analytical View
+        │
+        ▼
 SQL Analytics
-
         │
-
         ▼
+Power BI Dashboard
+```
+
+---
+
+# Database Structure
+
+The PostgreSQL implementation is organized into two schemas.
+
+## staging
+
+Temporary storage for validated data loaded from the ETL pipeline.
+
+Current table:
+
+- hr_core_employees
+
+---
+
+## dw
+
+Enterprise analytical repository.
+
+Current objects:
+
+### Dimension Tables
+
+- dim_employee
+- dim_hotel
+- dim_department
+- dim_contract
+- dim_status
+- dim_hierarchy
+- dim_date
+
+### Fact Table
+
+- fact_employee_snapshot
+
+### View
+
+- vw_employee_snapshot
+
+---
+
+# Star Schema
+
+```
+                     dim_date
+                        │
+                        │
+                        ▼
+
+dim_employee ─────────────────────────┐
+                                      │
+dim_hotel ────────────────────────────┤
+                                      │
+dim_department ───────────────────────┤
+                                      │
+dim_contract ─────────────────────────┤
+                                      │
+dim_status ───────────────────────────┤
+                                      │
+dim_hierarchy ────────────────────────┤
+                                      ▼
+
+          fact_employee_snapshot
+```
+
+---
+
+# Loading Strategy
+
+The loading process follows two stages.
+
+## Stage 1 – Python ETL
+
+Python performs:
+
+- Data extraction
+- Validation
+- Transformation
+- Silver dataset generation
+- Load into PostgreSQL staging
+
+---
+
+## Stage 2 – SQL
+
+SQL scripts populate the analytical model.
+
+Implemented layers:
+
+- DDL
+- DML
+- Validation
+- Analytics
+
+---
+
+# Data Warehouse Workflow
+
+```
+RAW
+
+↓
+
+Validation
+
+↓
+
+Transformation
+
+↓
+
+Silver
+
+↓
+
+PostgreSQL Staging
+
+↓
+
+Dimension Tables
+
+↓
+
+Fact Table
+
+↓
+
+Analytical View
+
+↓
 
 Power BI
 ```
 
 ---
 
-# 5. Modelo Dimensional
+# Data Integrity
 
-El modelo estará compuesto por una tabla de hechos y cinco dimensiones.
+The Data Warehouse enforces relational consistency through:
 
-## Dimensiones
+- Primary Keys
+- Foreign Keys
+- Unique Constraints
+- Business Keys
+- Referential Integrity
 
-- dim_employee
-- dim_hotel
-- dim_department
-- dim_contract
-- dim_date
-
-## Tabla de hechos
-
-- fact_employee_snapshot
+These mechanisms guarantee reliable analytical reporting.
 
 ---
 
-# 6. Grano del modelo
+# Performance
 
-Cada registro de la tabla de hechos representa:
+The analytical model has been optimized through:
+
+- Star Schema
+- Surrogate Keys
+- Indexed Business Keys
+- Dimension Separation
+- Analytical Views
+
+This structure improves SQL query performance and Power BI connectivity.
+
+---
+
+# SQL Layer
+
+The SQL project is organized into four modules.
 
 ```
-Un empleado en la fecha de referencia del Data Warehouse.
+sql/
+
+├── ddl/
+
+├── dml/
+
+├── validation/
+
+└── analytics/
 ```
 
-Fecha de referencia:
+### DDL
 
-```
-10/06/2026
-```
+Creates database objects.
 
----
+### DML
 
-# 7. Dimensiones
+Loads the Data Warehouse.
 
-## DimEmployee
+### Validation
 
-Contendrá la información descriptiva del empleado.
+Executes quality verification.
 
-Atributos:
+### Analytics
 
-- employee_key
-- employee_id
-- full_name
-- gender
-- birth_date
-- hire_date
-- termination_date
-- status
-- hierarchy_level
-- age
-- invalid_birth_date_flag
-- inactive_without_termination_flag
+Provides reusable business queries.
 
 ---
 
-## DimHotel
+# Current Implementation
 
-Atributos:
-
-- hotel_key
-- hotel_code
-- hotel_name
-- city
-- country
-
----
-
-## DimDepartment
-
-Atributos:
-
-- department_key
-- department_code
-- department_name
+| Component | Status |
+|-----------|--------|
+| PostgreSQL Database | ✅ |
+| Staging Schema | ✅ |
+| Data Warehouse Schema | ✅ |
+| Star Schema | ✅ |
+| Dimension Tables | ✅ |
+| Fact Table | ✅ |
+| Analytical View | ✅ |
+| SQL Validation | ✅ |
+| SQL Analytics | ✅ |
 
 ---
 
-## DimContract
+# Future Expansion
 
-Atributos:
+The current architecture has been designed to support additional HR domains.
 
-- contract_key
-- contract_type
+Future versions will incorporate:
 
----
+- Payroll
+- Recruiting
+- Training
+- Time Tracking
+- ESG Indicators
 
-## DimDate
-
-Atributos:
-
-- date_key
-- full_date
-- year
-- quarter
-- month
-- month_name
-- week
-- day
-- day_name
-- is_weekend
+without requiring structural redesign of the Data Warehouse.
 
 ---
 
-# 8. Tabla de hechos
+# Conclusion
 
-## FactEmployeeSnapshot
+The PostgreSQL implementation provides a scalable and maintainable analytical platform following modern Data Engineering best practices.
 
-Medidas y relaciones:
-
-- snapshot_key
-- employee_key
-- hotel_key
-- department_key
-- contract_key
-- date_key
-- is_active
-- tenure_months
-- quality_issue_flag
+The current architecture supports reliable HR reporting and serves as the foundation for executive dashboards in Power BI.
 
 ---
 
-# 9. Relaciones
+# Author
 
-```
-DimEmployee
+**Fernando Raúl Robles**
 
-        │
+Data Analytics & Data Engineering Portfolio Project
 
-        │
-
-DimHotel ---- FactEmployeeSnapshot ---- DimDepartment
-
-        │
-
-        │
-
-    DimContract
-
-        │
-
-        │
-
-      DimDate
-```
-
----
-
-# 10. Indicadores soportados
-
-El modelo permitirá calcular:
-
-- Headcount
-- Active Employees
-- Inactive Employees
-- Employees by Hotel
-- Employees by Country
-- Employees by Department
-- Employees by Contract Type
-- Average Age
-- Average Tenure
-- Quality Issues
-- Employees by Hierarchy Level
-
----
-
-# 11. Escalabilidad
-
-El modelo fue diseñado para permitir la incorporación futura de nuevas dimensiones, entre ellas:
-
-- DimPosition
-- DimNationality
-- DimCostCenter
-- DimShift
-- DimManager
-- FactAbsence
-- FactTraining
-- FactPayroll
-
-sin modificar la estructura principal del Data Warehouse.
-
----
-
-# 12. Beneficios del modelo
-
-Este diseño ofrece:
-
-- simplicidad
-- alto rendimiento
-- baja redundancia
-- fácil mantenimiento
-- integración con herramientas BI
-- escalabilidad
-
----
-
-# Estado
-
-**Diseño aprobado para implementación**
-
----
-
-# Fin del documento
+2026

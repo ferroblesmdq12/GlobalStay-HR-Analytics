@@ -10,34 +10,61 @@ The solution follows modern Data Engineering practices, including data quality v
 
 ---
 
+# Project Scope
+
+The current implementation focuses on the Human Resources domain, integrating employee master data into a centralized analytical repository.
+
+Implemented scope includes:
+
+- HR Core
+- Data Quality Assessment
+- ETL Pipeline
+- PostgreSQL Data Warehouse
+- SQL Analytics
+
+Future iterations will expand the platform by incorporating additional HR domains, including Payroll, Recruiting, Time Tracking, Learning Management, and ESG metrics.
+
 # Architecture Overview
 
 The project follows a modern layered analytical architecture.
 
-```
+"""
 Operational Systems
-        │
-        ▼
-     RAW Layer
-        │
-        ▼
- Python ETL Pipeline
-        │
-        ▼
-    Silver Layer
-        │
-        ▼
- PostgreSQL Staging
-        │
-        ▼
- Enterprise Data Warehouse
-        │
-        ▼
- Analytical Views
-        │
-        ▼
-     Power BI
-```
+(HR Core, Payroll, Recruiting...)
+
+            │
+            ▼
+RAW Layer (CSV Files)
+
+            │
+            ▼
+Python ETL Pipeline
+
+            │
+            ▼
+Silver Layer
+(Clean & Validated Data)
+
+            │
+            ▼
+PostgreSQL Staging
+
+            │
+            ▼
+Enterprise Data Warehouse
+(Star Schema)
+
+            │
+            ▼
+Analytical Views
+
+            │
+            ▼
+SQL Analytics
+
+            │
+            ▼
+Power BI Dashboard
 
 ---
 
@@ -70,6 +97,28 @@ Main principles:
 - Snapshot-based analytics
 
 ---
+
+# Implemented Components
+
+The current version of the project includes:
+
+- Synthetic Data Generator
+- Data Quality Framework
+- ETL Pipeline
+- Silver Layer
+- PostgreSQL Staging
+- Enterprise Data Warehouse
+- Star Schema
+- SQL Validation Layer
+- SQL Analytics Layer
+- Analytical Views
+
+The platform currently manages a synthetic HR dataset composed of:
+
+- 4 Countries
+- 9 Hotels
+- 10 Departments
+- 2,700 Employees
 
 # Implemented Data Warehouse
 
@@ -115,19 +164,25 @@ The following analytical fact tables are part of the project roadmap.
 The Data Warehouse follows a classic Star Schema.
 
 ```
-                 dim_date
-                    │
-                    │
-dim_employee ───────┼──────── dim_hotel
-                    │
-                    │
-         fact_employee_snapshot
-                    │
-      ┌─────────────┼─────────────┐
-      │             │             │
-dim_department dim_contract dim_status
-                    │
-             dim_hierarchy
+                     dim_date
+                        │
+                        │
+                        ▼
+
+dim_employee ─────────────────────────┐
+                                      │
+dim_hotel ────────────────────────────┤
+                                      │
+dim_department ───────────────────────┤
+                                      │
+dim_contract ─────────────────────────┤
+                                      │
+dim_status ───────────────────────────┤
+                                      │
+dim_hierarchy ────────────────────────┤
+                                      ▼
+
+          fact_employee_snapshot
 ```
 
 ---
@@ -211,6 +266,29 @@ Every dimension contains a Business Key used to uniquely identify business entit
 
 ---
 
+# SQL Analytics Layer
+
+The project includes a dedicated SQL Analytics layer composed of reusable business queries.
+
+Implemented analytical reports include:
+
+- Executive Summary
+- Headcount by Hotel
+- Headcount by Country
+- Headcount by Department
+- Contract Distribution
+- Gender Distribution
+- Average Tenure
+- Active vs Inactive Employees
+- Hierarchy Distribution
+- Data Quality Summary
+- Workforce Composition
+- Employee Detail Dataset
+
+These queries provide the data foundation for the Power BI executive dashboard.
+
+---
+
 # Data Governance
 
 The project follows Data Governance principles.
@@ -241,16 +319,22 @@ Implemented practices include:
 - PostgreSQL 14
 - pgAdmin 4
 
-## Analytics
-
-- SQL
-- Power BI
-
 ## Development
 
 - Git
 - GitHub
 - Visual Studio Code
+
+## Data Quality
+
+- Business Rules Validation
+- Quality Flags
+- Data Governance
+
+## Business Intelligence
+
+- SQL Analytics
+- Power BI
 
 ---
 
@@ -276,6 +360,7 @@ sql/
 │
 ├── ddl/
 ├── dml/
+├── validation/
 └── analytics/
 
 docs/
@@ -287,20 +372,19 @@ dashboards/
 
 ---
 
-# Current Version
+# Current Project Status
 
-| Component | Status |
-|----------|--------|
-| Synthetic Data Generator | ✅ |
-| ETL Pipeline | ✅ |
-| Data Quality Framework | ✅ |
-| Data Governance | ✅ |
-| PostgreSQL Staging | ✅ |
-| Data Warehouse | ✅ |
-| Star Schema | ✅ |
-| Analytical Views | ✅ |
-| Power BI Dashboard | ⏳ In Progress |
-
+| Layer              | Status            |
+|--------------------|-------------------|
+| Synthetic Data     |   ✅             |
+| Data Quality       |   ✅             |
+| ETL Pipeline       |   ✅             |
+| Silver Layer       |   ✅             |             
+| PostgreSQL Staging |   ✅             |
+| Data Warehouse     |   ✅             |
+| SQL Validation     |   ✅             |
+| SQL Analytics      |   ✅             |
+| Power BI           |   🚧 In Progress |
 ---
 
 # Project Roadmap

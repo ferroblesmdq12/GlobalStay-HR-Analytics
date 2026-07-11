@@ -1,436 +1,245 @@
-# GlobalStay Hotels - Data Dictionary
+# GlobalStay Hotels – Data Dictionary
 
 ## Overview
 
-This document describes all tables, columns, business rules and data quality validations used in the GlobalStay Hotels HR Analytics Data Warehouse.
+This document describes the current structure of the GlobalStay Hotels Data Warehouse.
+
+The Data Warehouse follows a Star Schema architecture implemented in PostgreSQL and stores HR Core information for analytical reporting.
+
+The current implementation includes seven dimension tables, one fact table and one analytical view.
+
+---
+
+# Data Warehouse Structure
+
+## Dimension Tables
+
+- dim_employee
+- dim_hotel
+- dim_department
+- dim_contract
+- dim_status
+- dim_hierarchy
+- dim_date
+
+## Fact Table
+
+- fact_employee_snapshot
+
+## Analytical View
+
+- vw_employee_snapshot
 
 ---
 
 # Dimension Tables
 
----
-
-# dim_employee
+## dim_employee
 
 Employee master information.
 
-## Primary Key
-
-employee_key
-
-## Columns
-
-| Column           | Data Type    | Key | Description                  |
-| ---------------- | ------------ | --- | ---------------------------- |
-| employee_key     | INT          | PK  | Surrogate key                |
-| employee_id      | VARCHAR(20)  | NK  | Employee business identifier |
-| full_name        | VARCHAR(150) |     | Employee full name           |
-| gender           | VARCHAR(20)  |     | Gender                       |
-| birth_date       | DATE         |     | Birth date                   |
-| hire_date        | DATE         |     | Hiring date                  |
-| termination_date | DATE         |     | Termination date             |
-| employee_status  | VARCHAR(50)  |     | Employment status            |
-| hierarchy_level  | VARCHAR(50)  |     | Hierarchy level              |
-| hotel_key        | INT          | FK  | Assigned hotel               |
-| department_key   | INT          | FK  | Assigned department          |
-| contract_key     | INT          | FK  | Assigned contract type       |
-
-## Business Rules
-
-* Employee ID must be unique.
-* Hire date must be before termination date.
-* Employee age must be greater than or equal to 18.
-* Employee status must be valid.
+| Column | Description |
+|----------|-------------|
+| employee_key | Surrogate Key |
+| employee_id | Business Key |
+| full_name | Employee full name |
+| gender | Employee gender |
+| birth_date | Employee birth date |
 
 ---
 
-# dim_hotel
+## dim_hotel
 
-Hotel master information.
+Hotel information.
 
-## Primary Key
-
-hotel_key
-
-## Columns
-
-| Column       | Data Type    | Key | Description               |
-| ------------ | ------------ | --- | ------------------------- |
-| hotel_key    | INT          | PK  | Surrogate key             |
-| hotel_id     | VARCHAR(20)  | NK  | Business hotel identifier |
-| hotel_name   | VARCHAR(150) |     | Hotel name                |
-| country_key  | INT          | FK  | Country identifier        |
-| city         | VARCHAR(100) |     | City                      |
-| hotel_type   | VARCHAR(50)  |     | Resort, Business or Beach |
-| opening_date | DATE         |     | Opening date              |
-
-## Business Rules
-
-* Hotel ID must be unique.
-* Country must exist.
-* Hotel type must be valid.
+| Column | Description |
+|----------|-------------|
+| hotel_key | Surrogate Key |
+| hotel_code | Business Key |
+| hotel_name | Hotel name |
+| city | Hotel city |
+| country | Hotel country |
 
 ---
 
-# dim_country
-
-Country information.
-
-## Primary Key
-
-country_key
-
-## Columns
-
-| Column       | Data Type    | Key | Description       |
-| ------------ | ------------ | --- | ----------------- |
-| country_key  | INT          | PK  | Surrogate key     |
-| country_name | VARCHAR(100) |     | Country name      |
-| region       | VARCHAR(100) |     | Geographic region |
-| currency     | VARCHAR(10)  |     | Currency          |
-
-## Expected Values
-
-| Country            | Region        | Currency |
-| ------------------ | ------------- | -------- |
-| Spain              | Europe        | EUR      |
-| Mexico             | North America | MXN      |
-| Cuba               | Caribbean     | CUP      |
-| Dominican Republic | Caribbean     | DOP      |
-
----
-
-# dim_department
+## dim_department
 
 Department information.
 
-## Primary Key
-
-department_key
-
-## Columns
-
-| Column           | Data Type    | Key | Description                   |
-| ---------------- | ------------ | --- | ----------------------------- |
-| department_key   | INT          | PK  | Surrogate key                 |
-| department_code  | VARCHAR(10)  | NK  | Department code               |
-| department_name  | VARCHAR(100) |     | Department name               |
-| department_group | VARCHAR(50)  |     | Operational or Administrative |
-
-## Department List
-
-| Code | Department             |
-| ---- | ---------------------- |
-| FD   | Front Desk             |
-| HK   | Housekeeping           |
-| FB   | Food & Beverage        |
-| MT   | Maintenance            |
-| HR   | Human Resources        |
-| FN   | Finance                |
-| SM   | Sales & Marketing      |
-| IT   | Information Technology |
-| SC   | Security               |
-| SW   | Spa & Wellness         |
+| Column | Description |
+|----------|-------------|
+| department_key | Surrogate Key |
+| department_code | Business Key |
+| department_name | Department name |
 
 ---
 
-# dim_date
+## dim_contract
+
+Employee contract types.
+
+| Column | Description |
+|----------|-------------|
+| contract_key | Surrogate Key |
+| contract_type | Contract description |
+
+---
+
+## dim_status
+
+Employee employment status.
+
+| Column | Description |
+|----------|-------------|
+| status_key | Surrogate Key |
+| status_name | Employee status |
+
+---
+
+## dim_hierarchy
+
+Organizational hierarchy.
+
+| Column | Description |
+|----------|-------------|
+| hierarchy_key | Surrogate Key |
+| hierarchy_level | Organizational level |
+
+---
+
+## dim_date
 
 Calendar dimension.
 
-## Primary Key
-
-date_key
-
-## Columns
-
-| Column      | Data Type   | Key | Description       |
-| ----------- | ----------- | --- | ----------------- |
-| date_key    | INT         | PK  | YYYYMMDD format   |
-| full_date   | DATE        |     | Full date         |
-| year        | INT         |     | Year              |
-| quarter     | INT         |     | Quarter           |
-| month       | INT         |     | Month             |
-| month_name  | VARCHAR(20) |     | Month name        |
-| week_number | INT         |     | Week number       |
-| day_name    | VARCHAR(20) |     | Day name          |
-| is_weekend  | BOOLEAN     |     | Weekend indicator |
+| Column | Description |
+|----------|-------------|
+| date_key | Surrogate Key |
+| full_date | Calendar date |
+| year | Year |
+| quarter | Quarter |
+| month | Month |
+| month_name | Month name |
 
 ---
 
-# dim_contract
+# Fact Table
 
-Contract information.
+## fact_employee_snapshot
 
-## Primary Key
+Stores workforce information for each employee at the snapshot date.
 
-contract_key
-
-## Columns
-
-| Column         | Data Type   | Key | Description                  |
-| -------------- | ----------- | --- | ---------------------------- |
-| contract_key   | INT         | PK  | Surrogate key                |
-| contract_type  | VARCHAR(50) |     | Contract type                |
-| contract_group | VARCHAR(50) |     | Permanent or Temporary       |
-| is_permanent   | BOOLEAN     |     | Permanent contract indicator |
-
-## Expected Values
-
-* Permanent
-* Temporary
-* Seasonal
-* Internship
+| Column | Description |
+|----------|-------------|
+| snapshot_key | Surrogate Key |
+| employee_key | Employee FK |
+| hotel_key | Hotel FK |
+| department_key | Department FK |
+| contract_key | Contract FK |
+| status_key | Status FK |
+| hierarchy_key | Hierarchy FK |
+| date_key | Snapshot Date FK |
+| is_active | Active employee flag |
+| tenure_months | Employee tenure |
+| quality_issue_flag | Data quality indicator |
 
 ---
 
-# Fact Tables
+# Analytical View
+
+## vw_employee_snapshot
+
+Business view used by SQL Analytics and Power BI.
+
+The view joins the fact table with all dimensions to simplify analytical queries and dashboard development.
 
 ---
 
-# fact_employee_snapshot
+# Data Quality Flags
 
-Monthly workforce snapshot.
+The ETL process generates quality indicators during data validation.
 
-## Primary Key
+Current flags include:
 
-snapshot_key
+- invalid_birth_date_flag
+- inactive_without_termination_flag
+- quality_issue_flag
 
-## Columns
-
-| Column         | Data Type    | Key |
-| -------------- | ------------ | --- |
-| snapshot_key   | INT          | PK  |
-| date_key       | INT          | FK  |
-| employee_key   | INT          | FK  |
-| hotel_key      | INT          | FK  |
-| department_key | INT          | FK  |
-| contract_key   | INT          | FK  |
-| is_active      | BOOLEAN      |     |
-| tenure_months  | INT          |     |
-| fte            | DECIMAL(4,2) |     |
-
-## Business Rules
-
-* One record per employee per month.
-* Active employees contribute to Headcount.
-* FTE must be between 0 and 1.
-* Tenure cannot be negative.
+These indicators allow data quality monitoring without modifying historical records.
 
 ---
 
-# fact_payroll
+# Naming Conventions
 
-Payroll transactions.
+## Primary Keys
 
-## Primary Key
+Every table uses a surrogate key ending with:
 
-payroll_key
+```
+_key
+```
 
-## Columns
+Example:
 
-| Column             | Data Type     | Key |
-| ------------------ | ------------- | --- |
-| payroll_key        | INT           | PK  |
-| date_key           | INT           | FK  |
-| employee_key       | INT           | FK  |
-| hotel_key          | INT           | FK  |
-| department_key     | INT           | FK  |
-| base_salary        | DECIMAL(10,2) |     |
-| bonus_amount       | DECIMAL(10,2) |     |
-| overtime_amount    | DECIMAL(10,2) |     |
-| employer_cost      | DECIMAL(10,2) |     |
-| total_payroll_cost | DECIMAL(10,2) |     |
-
-## Business Rules
-
-* Salaries cannot be negative.
-* Payroll must exist for active employees.
-* Total payroll cost must be calculated correctly.
+```
+employee_key
+```
 
 ---
 
-# fact_absenteeism
+## Business Keys
 
-Employee absences.
+Business identifiers are preserved.
 
-## Primary Key
+Examples:
 
-absenteeism_key
+```
+employee_id
 
-## Columns
+hotel_code
 
-| Column          | Data Type    | Key |
-| --------------- | ------------ | --- |
-| absenteeism_key | INT          | PK  |
-| date_key        | INT          | FK  |
-| employee_key    | INT          | FK  |
-| hotel_key       | INT          | FK  |
-| department_key  | INT          | FK  |
-| absence_type    | VARCHAR(50)  |     |
-| scheduled_hours | DECIMAL(4,2) |     |
-| absent_hours    | DECIMAL(4,2) |     |
-
-## Allowed Values
-
-* Sick Leave
-* Personal Leave
-* Unjustified Absence
-* Work Accident
-
-## Business Rules
-
-* Absent hours cannot exceed scheduled hours.
-* Scheduled hours must be positive.
+department_code
+```
 
 ---
 
-# fact_recruiting
+## Foreign Keys
 
-Recruitment process information.
-
-## Primary Key
-
-recruiting_key
-
-## Columns
-
-| Column               | Data Type     | Key |
-| -------------------- | ------------- | --- |
-| recruiting_key       | INT           | PK  |
-| candidate_id         | VARCHAR(20)   |     |
-| application_date_key | INT           | FK  |
-| hire_date_key        | INT           | FK  |
-| hotel_key            | INT           | FK  |
-| department_key       | INT           | FK  |
-| position_name        | VARCHAR(100)  |     |
-| recruitment_source   | VARCHAR(50)   |     |
-| hiring_status        | VARCHAR(50)   |     |
-| time_to_hire_days    | INT           |     |
-| recruitment_cost     | DECIMAL(10,2) |     |
-
-## Hiring Status Values
-
-* Applied
-* Interview
-* Offer
-* Hired
-* Rejected
-* Withdrawn
+All relationships are implemented through surrogate keys to ensure referential integrity and improve query performance.
 
 ---
 
-# fact_training
+# Current Data Warehouse
 
-Employee training records.
-
-## Primary Key
-
-training_key
-
-## Columns
-
-| Column            | Data Type    | Key |
-| ----------------- | ------------ | --- |
-| training_key      | INT          | PK  |
-| date_key          | INT          | FK  |
-| employee_key      | INT          | FK  |
-| hotel_key         | INT          | FK  |
-| department_key    | INT          | FK  |
-| training_name     | VARCHAR(150) |     |
-| training_category | VARCHAR(100) |     |
-| hours_completed   | DECIMAL(5,2) |     |
-| completion_status | VARCHAR(50)  |     |
-
-## Training Categories
-
-* Compliance
-* Customer Service
-* Safety
-* Leadership
-* Technical Skills
-* ESG
+| Component | Quantity |
+|------------|---------:|
+| Countries | 4 |
+| Hotels | 9 |
+| Departments | 10 |
+| Employees | 2,700 |
+| Dimension Tables | 7 |
+| Fact Tables | 1 |
+| Analytical Views | 1 |
 
 ---
 
-# fact_turns
+# Future Expansion
 
-Employee shift information.
+Future project iterations will incorporate additional HR domains, including:
 
-## Primary Key
+- Payroll
+- Recruiting
+- Training
+- Time Tracking
+- ESG Metrics
 
-shift_key
-
-## Columns
-
-| Column          | Data Type    | Key |
-| --------------- | ------------ | --- |
-| shift_key       | INT          | PK  |
-| date_key        | INT          | FK  |
-| employee_key    | INT          | FK  |
-| hotel_key       | INT          | FK  |
-| department_key  | INT          | FK  |
-| shift_type      | VARCHAR(50)  |     |
-| scheduled_hours | DECIMAL(4,2) |     |
-| worked_hours    | DECIMAL(4,2) |     |
-| overtime_hours  | DECIMAL(4,2) |     |
-
-## Shift Types
-
-* Morning
-* Afternoon
-* Night
+The current dimensional model has been designed to support this future expansion while maintaining scalability and performance.
 
 ---
 
-# Data Quality Rules
+# Author
 
-## Uniqueness
+**Fernando Raúl Robles**
 
-* employee_id must be unique.
-* hotel_id must be unique.
-* department_code must be unique.
+Data Analytics & Data Engineering Portfolio Project
 
-## Referential Integrity
-
-* All FK values must exist in their corresponding dimensions.
-
-## Consistency
-
-* Valid dates.
-* Valid salaries.
-* Valid contracts.
-* Valid statuses.
-
-## Completeness
-
-Mandatory fields:
-
-* employee_id
-* hotel_key
-* department_key
-* date_key
-
-## Validity
-
-Controlled lists for:
-
-* Countries
-* Contract Types
-* Employee Status
-* Shift Types
-* Absence Types
-* Hiring Status
-
----
-
-# Data Governance Notes
-
-This project follows best practices for:
-
-* Data Quality
-* Data Governance
-* Data Lineage
-* Master Data Management (MDM)
-* ESG Reporting
-* HR Analytics
+2026

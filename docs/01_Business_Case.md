@@ -182,3 +182,18 @@ Interested in:
 * Age Distribution
 * Training Hours
 * Workplace Accidents
+
+
+## Project Scope
+
+Current Project Status
+
+Sprint 1 ✔
+
+Sprint 2 ✔
+
+Sprint 3 ✔
+
+Sprint 4 ✔ (PostgreSQL DW + SQL Analytics)
+
+Sprint 5 → Power BI

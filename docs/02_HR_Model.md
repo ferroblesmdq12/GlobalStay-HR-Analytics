@@ -153,3 +153,31 @@ The project will track:
 * Recruiting Analysis
 * ESG Reporting
 * Operational Analytics
+
+
+# Implemented HR Domains
+
+✔ HR Core
+
+Planned
+
+Payroll
+
+Training
+
+Recruiting
+
+Time Tracking
+
+ESG
+
+
+# Current Workforce
+
+2700 Employees
+
+9 Hotels
+
+4 Countries
+
+10 Departments

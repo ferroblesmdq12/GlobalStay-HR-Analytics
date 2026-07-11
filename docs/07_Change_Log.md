@@ -1,200 +1,100 @@
-# GlobalStay Hotels
+# GlobalStay Hotels – Change Log
 
-# Data Correction Change Log
-
-**Proyecto:** HR Analytics Platform
-
-**Documento:** 07 - Change Log
-
-**Versión:** 1.0
-
-**Fecha:** 30/06/2026
+This document records the major milestones achieved throughout the development of the GlobalStay Hotels HR Analytics Platform.
 
 ---
 
-# 1. Objetivo
+# Version History
 
-El presente documento registra todas las modificaciones implementadas por el equipo de Data Engineering sobre el dataset HR Core durante la ejecución del Pipeline ETL.
+## v0.1 – Project Initialization
 
-Cada cambio incluido en este registro cuenta con la correspondiente autorización del Data Owner, conforme al documento:
+### Completed
 
-```
-06_Business_Approval.md
-```
-
-Este registro garantiza la trazabilidad de las transformaciones realizadas antes de la carga del Data Warehouse corporativo.
-
----
-
-# 2. Registro de cambios
-
-| ID      | Fecha      | Campo            | Acción  | Registros | Responsable | Autorización |
-|---------|------------|------------------|---------|-----------|-------------|--------------|
-| CHG-001 | 30/06/2026 | employee_id      | Eliminación de registros duplicados | 15 | Data Engineering | Business Approval |
-| CHG-002 | 30/06/2026 | gender           | Estandarización de valores | 20 | Data Engineering | Business Approval |
-| CHG-003 | 30/06/2026 | hotel_code       | Reconciliación con catálogo maestro | 10 | Data Engineering | Business Approval |
-| CHG-004 | 30/06/2026 | birth_date       | Generación de Quality Flag | 5 | Data Engineering | Business Approval |
-| CHG-005 | 30/06/2026 | termination_date | Generación de Quality Flag | 38 | Data Engineering | Business Approval |
+- Project definition
+- Business Case
+- HR Model
+- Repository structure
+- Synthetic data generator
 
 ---
 
-# 3. Cambios implementados
+## v0.2 – Data Understanding
 
-## CHG-001
+### Completed
 
-### Campo
-
-employee_id
-
-### Acción
-
-Eliminación de registros duplicados.
-
-### Justificación
-
-Evitar duplicidad de empleados e inconsistencias en los indicadores de RRHH.
-
-### Resultado
-
-15 registros eliminados.
+- Exploratory Data Analysis (EDA)
+- Data profiling
+- Data quality assessment
+- Validation rules
+- Technical documentation
 
 ---
 
-## CHG-002
+## v0.3 – ETL Pipeline
 
-### Campo
+### Completed
 
-gender
-
-### Acción
-
-Normalización utilizando el catálogo corporativo.
-
-Valores transformados:
-
-```
-male → Male
-
-M → Male
-
-F → Female
-```
-
-### Resultado
-
-20 registros actualizados.
+- Extract layer
+- Validation layer
+- Transformation layer
+- Silver dataset generation
+- Quality flags
+- Logging improvements
 
 ---
 
-## CHG-003
+## v0.4 – Data Warehouse
 
-### Campo
+### Completed
 
-hotel_code
-
-### Acción
-
-Reconciliación con el Master Data corporativo.
-
-Transformaciones:
-
-```
-PMI → HES001
-
-PALMA → HES001
-```
-
-### Resultado
-
-10 registros corregidos.
+- PostgreSQL configuration
+- Staging schema
+- Enterprise Data Warehouse
+- Star Schema implementation
+- Dimension tables
+- Fact table
+- Analytical view
 
 ---
 
-## CHG-004
+## v0.5 – SQL Analytics
 
-### Campo
+### Completed
 
-birth_date
-
-### Acción
-
-No se modifica el dato.
-
-Se incorpora:
-
-```
-invalid_birth_date_flag
-```
-
-### Justificación
-
-No existe evidencia suficiente para determinar la fecha correcta.
+- DDL scripts
+- DML scripts
+- Validation SQL scripts
+- Analytics SQL scripts
+- Data Warehouse documentation
+- PostgreSQL documentation
+- Project diagrams
 
 ---
 
-## CHG-005
+## v0.6 – Planned
 
-### Campo
+### Planned Features
 
-termination_date
-
-### Acción
-
-No se modifica el dato.
-
-Se incorpora:
-
-```
-inactive_without_termination_flag
-```
-
-### Justificación
-
-No existe documentación suficiente para reconstruir la fecha de baja.
+- Power BI Dashboard
+- Executive KPIs
+- Interactive reports
+- Dashboard documentation
+- Final README improvements
 
 ---
 
-# 4. Resumen
+# Current Version
 
-| Tipo de acción | Cantidad |
-|----------------|---------:|
-| Registros eliminados | 15 |
-| Valores estandarizados | 20 |
-| Códigos reconciliados | 10 |
-| Quality Flags generadas | 43 |
+**Version:** v0.5
+
+**Status:** PostgreSQL Data Warehouse & SQL Analytics Completed
 
 ---
 
-# 5. Versionado
+# Author
 
-Pipeline ETL
+**Fernando Raúl Robles**
 
-Versión:
+Data Analytics & Data Engineering Portfolio Project
 
-```
-v0.4
-```
-
-Estado:
-
-```
-Implementado
-```
-
----
-
-# 6. Próximo paso
-
-Los datos corregidos serán cargados en el Data Warehouse durante el Sprint 4.
-
-Las incidencias no corregidas permanecerán identificadas mediante Quality Flags para garantizar la trazabilidad y facilitar futuras revisiones por parte del área de Recursos Humanos.
-
----
-
-# Estado
-
-**IMPLEMENTADO**
-
----
-
-# Fin del documento
+2026

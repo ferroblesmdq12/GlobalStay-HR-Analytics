@@ -1,242 +1,130 @@
-# GlobalStay Hotels
+# GlobalStay Hotels – Data Quality Report
 
-# Data Quality Assessment Report
+## Overview
 
-**Proyecto:** HR Analytics Platform
+This report summarizes the data quality assessment performed on the HR Core dataset before loading data into the PostgreSQL Data Warehouse.
 
-**Documento:** 05 - Data Quality Report
-
-**Versión:** 1.0
-
-**Fecha:** 30/06/2026
-
-**Preparado por:** Data Engineering Team
+The objective is to identify, document, and resolve data quality issues while preserving business transparency through quality flags.
 
 ---
 
-# 1. Resumen Ejecutivo
-
-Como parte del proyecto **GlobalStay Hotels HR Analytics Platform**, el equipo de Data Engineering realizó una auditoría integral sobre el conjunto de datos del sistema **HR Core** correspondiente al período comprendido entre el 01/01/2020 y el 10/06/2026.
-
-El objetivo de esta auditoría fue evaluar la calidad, consistencia e integridad de los datos antes de su incorporación al Data Warehouse corporativo.
-
-Durante la revisión se detectaron diversas incidencias que podrían afectar la confiabilidad de los indicadores estratégicos de Recursos Humanos, tales como Headcount, Turnover Rate, Attrition y otros KPIs corporativos.
-
-Este documento resume los hallazgos y presenta las recomendaciones técnicas elevadas al área de Recursos Humanos para su evaluación y aprobación.
-
----
-
-# 2. Alcance
-
-La auditoría incluyó la validación de:
-
-- estructura del dataset
-- duplicados
-- valores nulos
-- consistencia de atributos categóricos
-- integridad temporal
-- reglas de negocio
-- calidad del Master Data
-
-Dataset auditado:
+# ETL Data Flow
 
 ```
-hr_core_employees.csv
-```
-
-Cantidad de registros:
-
-```
-2715
+RAW Dataset
+    │
+    ▼
+Data Validation
+    │
+    ▼
+Data Transformation
+    │
+    ▼
+Silver Layer
+    │
+    ▼
+PostgreSQL Staging
+    │
+    ▼
+Enterprise Data Warehouse
 ```
 
 ---
 
-# 3. Hallazgos
+# Dataset Summary
 
-## 3.1 Employee ID duplicados
-
-**Resultado**
-
-15 registros duplicados.
-
-### Riesgo
-
-- sobreestimación del Headcount
-- duplicación de empleados
-- errores en métricas corporativas
-
-### Recomendación
-
-Eliminar registros duplicados conservando la primera aparición.
-
-Prioridad:
-
-**Alta**
+| Metric | Value |
+|---------|------:|
+| RAW Records | 2,715 |
+| Silver Records | 2,700 |
+| Duplicate Records Removed | 15 |
 
 ---
 
-## 3.2 Valores inconsistentes en Gender
+# Validation Rules
 
-Se detectaron los siguientes valores:
+The following validation rules are executed during the ETL process.
 
-```
-Male
-male
-M
-Female
-F
-```
-
-### Riesgo
-
-Fragmentación de categorías.
-
-Errores en dashboards.
-
-Problemas en segmentaciones.
-
-### Recomendación
-
-Estandarizar todos los valores utilizando el catálogo corporativo.
-
-Prioridad:
-
-**Alta**
+| Validation | Result |
+|------------|--------|
+| Duplicate Employee IDs | ✅ |
+| Invalid Gender Values | ✅ |
+| Invalid Hotel Codes | ✅ |
+| Future Hire Dates | ✅ |
+| Future Termination Dates | ✅ |
+| Termination Before Hire | ✅ |
+| Active Employee with Termination Date | ✅ |
+| Minimum Working Age | ⚠ Quality Flag |
+| Inactive Employee Without Termination Date | ⚠ Quality Flag |
 
 ---
 
-## 3.3 Hotel Code
+# Data Cleansing Actions
 
-Se detectaron códigos no pertenecientes al catálogo oficial.
+The ETL process automatically performs the following transformations:
 
-Valores encontrados:
-
-```
-PMI
-
-PALMA
-```
-
-### Riesgo
-
-Errores en análisis por hotel.
-
-Problemas durante la integración con el Data Warehouse.
-
-### Recomendación
-
-Reconciliar utilizando el catálogo maestro de hoteles.
-
-Prioridad:
-
-**Alta**
+- Duplicate employee records removed.
+- Gender values standardized.
+- Hotel codes normalized.
+- Invalid data formats corrected.
+- Business rules validated.
+- Quality flags generated when required.
 
 ---
 
-## 3.4 Fechas de nacimiento futuras
+# Quality Flags
 
-Se detectaron:
+Some records are intentionally preserved to simulate real business scenarios.
 
-```
-5 registros
-```
+Current quality indicators include:
 
-### Riesgo
+| Flag | Purpose |
+|------|---------|
+| invalid_birth_date_flag | Future birth date detected |
+| inactive_without_termination_flag | Missing termination date |
+| quality_issue_flag | General quality indicator |
 
-Imposibilidad de calcular edad.
-
-KPIs incorrectos.
-
-Incumplimiento de reglas de negocio.
-
-### Recomendación
-
-Elevar el caso al Data Owner.
-
-No modificar automáticamente.
-
-Prioridad:
-
-**Alta**
+These flags allow analysts to identify data quality issues without deleting historical information.
 
 ---
 
-## 3.5 Empleados inactivos sin fecha de baja
+# Data Quality Results
 
-Se detectaron:
+The final ETL execution produced the following results:
 
-```
-38 registros
-```
-
-### Riesgo
-
-Errores en:
-
-- Turnover
-- Attrition
-- Headcount histórico
-- Antigüedad
-
-### Recomendación
-
-Solicitar revisión al área de Recursos Humanos.
-
-No imputar fechas automáticamente.
-
-Prioridad:
-
-**Media**
+| Result | Status |
+|---------|--------|
+| Data Validation | ✅ Successful |
+| Data Transformation | ✅ Successful |
+| Silver Layer | ✅ Generated |
+| PostgreSQL Load | ✅ Successful |
+| Data Warehouse Load | ✅ Successful |
 
 ---
 
-# 4. Resumen de incidencias
+# Business Impact
 
-| Incidencia | Registros      | Severidad |
-|------------|----------------|-----------|
-| Employee ID duplicados      | 15 | Alta |
-| Gender inconsistente        | 20 | Alta |
-| Hotel Code inválido         | 10 | Alta |
-| Birth Date futura           | 5  | Alta |
-| Inactivos sin fecha de baja | 38 | Media|
+The implemented validation framework improves data reliability by:
 
----
-
-# 5. Recomendaciones del equipo de Data Engineering
-
-El equipo recomienda:
-
-- eliminar registros duplicados;
-- estandarizar valores de género;
-- reconciliar códigos de hotel;
-- mantener las fechas futuras sin modificación hasta recibir autorización del Data Owner;
-- mantener los empleados inactivos sin fecha de baja hasta que Recursos Humanos determine la acción correspondiente.
-
-Todas las modificaciones que impliquen alterar información funcional deberán contar con aprobación expresa del Data Owner.
+- Detecting inconsistent records.
+- Preserving business traceability.
+- Supporting governance policies.
+- Increasing confidence in analytical reports.
 
 ---
 
-# 6. Estado
+# Conclusion
 
-**Estado del informe**
+The HR Core dataset meets the quality requirements established for the current version of the project.
 
-🟡 Pendiente de revisión por Recursos Humanos.
-
----
-
-# 7. Próximo paso
-
-Este documento será presentado al área de Recursos Humanos para su análisis.
-
-Las decisiones adoptadas serán documentadas en el documento:
-
-```
-06_Business_Approval.md
-```
-
-y servirán como autorización formal para las modificaciones implementadas posteriormente en el proceso ETL y en la carga del Data Warehouse.
+All critical validation rules passed successfully, while non-critical issues are monitored through quality flags for analytical transparency.
 
 ---
 
-# Fin del documento
+# Author
+
+**Fernando Raúl Robles**
+
+Data Analytics & Data Engineering Portfolio Project
+
+2026
